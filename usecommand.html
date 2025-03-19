@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allowed SQL Commands</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Text+Me+One&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #F8F6F0;
+            color: #333;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background-color: #000000;
+            color: #16C40C;
+        }
+
+        h2 {
+            text-align: center;
+            color: #222;
+        }
+
+        .dark-mode h2 {
+            color: #16C40C;
+        }
+
+        .container {
+            font-family: "Text Me One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .dark-mode .container {
+            background: #222;
+            color: #16C40C;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .command {
+            background: #eef;
+            padding: 10px;
+            border-left: 4px solid #007BFF;
+            font-family: monospace;
+            margin-top: 5px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .dark-mode .command {
+            background: #333;
+            border-left: 4px solid #16C40C;
+        }
+
+        /* Toggle Switch */
+        .switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 26px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #16C40C;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        /* Back Arrow */
+        .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .dark-mode .back-arrow {
+            color: #16C40C;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" class="back-arrow">&#8592;</a>
+    <label class="switch">
+        <input type="checkbox" id="modeToggle">
+        <span class="slider round"></span>
+    </label>
+
+    <div class="container">
+        <h2>Allowed SQL Commands</h2>
+
+        <div class="section">
+            <h3>1. Database & Table Management</h3>
+            <div class="command">CREATE TABLE table_name (column1 TYPE, column2 TYPE, ...);</div>
+            <div class="command">ALTER TABLE table_name ADD column_name TYPE;</div>
+            <div class="command">DROP TABLE table_name;</div>
+        </div>
+
+        <div class="section">
+            <h3>2. Data Manipulation (DML)</h3>
+            <div class="command">INSERT INTO table_name (column1, column2) VALUES ('value1', 'value2');</div>
+            <div class="command">UPDATE table_name SET column1='new_value' WHERE condition;</div>
+            <div class="command">DELETE FROM table_name WHERE condition;</div>
+            <div class="command">SELECT * FROM table_name;</div>
+        </div>
+
+        <div class="section">
+            <h3>3. Querying Multiple Tables (Joins)</h3>
+            <div class="command">SELECT t1.column, t2.column FROM table1 t1 JOIN table2 t2 ON t1.id = t2.id;</div>
+            <div class="command">SELECT t1.column, t2.column FROM table1 t1 LEFT JOIN table2 t2 ON t1.id = t2.id;</div>
+        </div>
+
+        <div class="section">
+            <h3>4. Table Information & Structure</h3>
+            <div class="command">SHOW TABLES;</div>
+            <div class="command">DESCRIBE table_name;</div>
+        </div>
+
+        <div class="section">
+            <h3>5. Aggregate Functions & Sorting</h3>
+            <div class="command">SELECT COUNT(*) FROM table_name;</div>
+            <div class="command">SELECT SUM(column_name) FROM table_name;</div>
+            <div class="command">SELECT * FROM table_name ORDER BY column_name ASC;</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleSwitch = document.getElementById("modeToggle");
+            const body = document.body;
+
+            if (localStorage.getItem("mode") === "dark") {
+                body.classList.add("dark-mode");
+                toggleSwitch.checked = true;
+            }
+
+            toggleSwitch.addEventListener("change", function () {
+                if (this.checked) {
+                    body.classList.add("dark-mode");
+                    localStorage.setItem("mode", "dark");
+                } else {
+                    body.classList.remove("dark-mode");
+                    localStorage.setItem("mode", "light");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
