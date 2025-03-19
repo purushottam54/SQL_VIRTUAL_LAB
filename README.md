@@ -1,4 +1,6 @@
 # SQL Query Executor
+![image](https://github.com/user-attachments/assets/8bda6ad3-35e9-4759-836d-2304f111f91c)
+
 
 ## 📌 Project Description
 This is a **web-based SQL Query Executor** that allows users to enter and execute **SQL queries** (CREATE, INSERT, UPDATE, DELETE, SELECT) directly from a webpage. The backend is built using **PHP and MySQL**, while the frontend uses **HTML, CSS, and JavaScript**. It runs on a **XAMPP server**.
