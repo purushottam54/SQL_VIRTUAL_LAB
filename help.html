@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Page</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Text+Me+One&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #F8F6F0;
+        }
+
+        /* Back Arrow */
+        .back-link {
+            font-size: 24px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #16C40C;
+        }
+
+        textarea {
+            width: 80%;
+            padding: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            display: inline-block;
+            text-align: left;
+        }
+
+        h3 {
+            font-family: "Text Me One", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+            text-align: justify;
+            width: 70%;
+            margin: 20px auto;
+            padding: 10px;
+            opacity: 0;
+        }
+
+        /* Text Animation */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-80px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Apply staggered animation */
+        h3 {
+            animation: slideDown 1.5s ease-in-out forwards;
+        }
+
+        h3:nth-child(2) { animation-delay: 0.5s; }
+        h3:nth-child(3) { animation-delay: 1s; }
+        h3:nth-child(4) { animation-delay: 1.5s; }
+        h3:nth-child(5) { animation-delay: 2s; }
+        h3:nth-child(6) { animation-delay: 2.5s; }
+
+        /* Default Light Mode */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #F8F6F0;
+            color: black;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* Back Arrow */
+        .back-link {
+            font-size: 24px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #16C40C;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background-color: #000000 !important;
+            color: #16C40C !important;
+        }
+
+        .dark-mode .back-link {
+            color: #16C40C !important;
+        }
+
+        /* Toggle Switch */
+        .switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider::before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #16C40C;
+        }
+
+        input:checked + .slider::before {
+            transform: translateX(24px);
+        }
+    </style>
+</head>
+
+<body>
+    <label class="switch">
+        <input type="checkbox" id="modeToggle">
+        <span class="slider round"></span>
+    </label>
+    
+    <!-- Back Arrow at the Top -->
+    <a href="index.html" class="back-link">←</a>
+
+    <!-- Text Content -->
+    <h3>The SQL Query Executor is a web-based tool that allows users to run SQL queries such as CREATE, INSERT, UPDATE,
+        DELETE, and SELECT from an HTML interface. The backend is powered by PHP and MySQL, running on a XAMPP server.
+
+        Before using the SQL Query Executor, ensure you have XAMPP installed on your system, Apache and MySQL services
+        running in XAMPP, and a MySQL database created (e.g., test_db).
+
+        To start, open the XAMPP Control Panel and start the Apache and MySQL services. Then, place the sql_project
+        folder inside C:\xampp\htdocs\ and open a browser to http://localhost/sql_project/index.html.
+
+        In the provided textarea, type a valid SQL query. For example, you can create a table using: CREATE TABLE
+        employees (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), salary INT). To insert data, use: INSERT INTO
+        employees (name, salary) VALUES ('Alice', 50000). To update data, use: UPDATE employees SET salary = 60000 WHERE
+        name = 'Alice'. To delete a record, use: DELETE FROM employees WHERE name = 'Alice'. To view data, use: SELECT *
+        FROM employees. </h3>
+
+    <h3>After entering a query, click the "Run Query" button. If the query executes successfully, a success message will
+        appear. If it's a SELECT statement, the results will be displayed in a table. If an error occurs, it will be
+        displayed in red.</h3>
+    <h3>
+        Ensure your SQL syntax is correct. The system blocks dangerous queries like DROP DATABASE. Always start XAMPP
+        before using the SQL executor.
+
+        The SQL Query Executor provides a simple way to test and execute SQL queries directly from a webpage. Use it to
+        create, modify, and retrieve database records efficiently.
+    </h3>
+
+    <h3>Developed By: Purushottam sarsekar</h3>
+
+    <h3>To create a database in XAMPP, first, ensure that the XAMPP server is installed on your system and that the
+        Apache and MySQL services are running. Open the XAMPP Control Panel and start both Apache and MySQL. Next, open
+        a web browser and go to http://localhost/phpmyadmin/. This will open phpMyAdmin, a web-based interface for
+        managing MySQL databases. Click on the "Databases" tab at the top of the page. In the "Create database" field,
+        enter the desired name for your database, such as "test_db." Choose the appropriate collation (typically
+        "utf8_general_ci" for most applications), and then click the "Create" button. Your database is now created and
+        will be listed on the left panel of phpMyAdmin. You can now create tables, insert data, and manage your database
+        using phpMyAdmin or SQL queries. Always ensure that your XAMPP server is running whenever you need to access or
+        modify the database.</h3>
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const toggleSwitch = document.getElementById("modeToggle");
+                const body = document.body;
+    
+                if (localStorage.getItem("mode") === "dark") {
+                    body.classList.add("dark-mode");
+                    toggleSwitch.checked = true;
+                }
+    
+                toggleSwitch.addEventListener("change", function () {
+                    if (this.checked) {
+                        body.classList.add("dark-mode");
+                        localStorage.setItem("mode", "dark");
+                    } else {
+                        body.classList.remove("dark-mode");
+                        localStorage.setItem("mode", "light");
+                    }
+                });
+            });
+        </script>
+</body>
+
+</html>
