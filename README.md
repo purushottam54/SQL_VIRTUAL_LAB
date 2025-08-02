@@ -77,7 +77,7 @@ SELECT * FROM employees;
 - By default, it connects to the **test_db** database.
 
 ---
-### 🎯 Future Enhancements
+### 🎯 Future Enhancements.
 ✅ User authentication
 ✅ Query history logging
 ✅ Enhanced security measures
